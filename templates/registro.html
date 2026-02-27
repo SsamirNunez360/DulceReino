@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-dulce: #FF9BB3;
+      --morado-dulce: #D6A3DC;
+      --amarillo-dulce: #FFD166;
+      --verde-menta: #A2D9B1;
+      --blanco-azucar: #FFF9FB;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: #333;
+    }
+
+/* Navbar Estilo Dulce */
+.navbar {
+      background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+      border-bottom: 3px solid var(--amarillo-dulce);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 2rem;
+      color: white !important;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05) rotate(-5deg);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: white !important;
+      margin: 0 10px;
+      padding: 8px 15px !important;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .nav-link.active {
+      background-color: var(--amarillo-dulce);
+      color: #333 !important;
+    }
+
+    .navbar-toggler {
+      border: 2px solid white;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .dropdown-menu {
+      background-color: var(--blanco-azucar);
+      border: 2px solid var(--rosa-dulce);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--rosa-dulce);
+      color: white !important;
+    }
+
+    /* Contenedor de tabla */
+    .table-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      border: 3px solid var(--rosa-dulce);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .table-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+      z-index: 0;
+      opacity: 0.1;
+    }
+
+    /* Estilo de tabla */
+    .table {
+      color: #333;
+      position: relative;
+      z-index: 1;
+    }
+
+    .table thead th {
+      background-color: var(--morado-dulce);
+      color: white;
+      border-bottom: 2px solid var(--rosa-dulce);
+      font-weight: 700;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(255, 155, 179, 0.1);
+    }
+
+    .table-hover tbody tr:hover {
+      background-color: rgba(214, 163, 220, 0.2);
+    }
+
+    /* Botones */
+    .btn-dulce {
+      background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+      color: white !important;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-right: 8px;
+    }
+
+    .btn-dulce:hover {
+      background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      color: white;
+    }
+
+    .btn-group .btn {
+      margin-right: 5px;
+    }
+
+    /* Decoraciones */
+    .candy-decoration {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.8;
+      z-index: 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .table-container {
+        padding: 15px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .btn-dulce {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+      
+      .table thead th {
+        font-size: 0.9rem;
+      }
+      
+      .table td {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍬 Dulce Reino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Opciones del Sistema
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/registro/crear">Agregar Registro</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="table-container">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Contraseña</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for x in lista %}
+          <tr>
+            <td>{{ x.email }}</td>
+            <td>••••••••</td> <!-- Ocultamos la contraseña real -->
+            <td>{{ x.nombre }}</td>
+            <td>{{ x.apellido }}</td>
+            <td>
+              <div class="btn-group" role="group">
+                <form action="/registro/edit" method="post" style="display: inline;">
+                  {% csrf_token %}
+                  <input type="text" value="{{ x.email }}" hidden name="email">
+                  <input type="submit" class="btn btn-dulce" value="Editar">
+                </form>
+                <form action="/registro/remove" method="get" style="display: inline;">
+                  <input type="text" value="{{ x.email }}" hidden name="email">
+                  <input type="submit" class="btn btn-dulce" value="Eliminar">
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

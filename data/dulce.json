@@ -1,0 +1,66 @@
+[
+    {
+        "id": "1",
+        "nombre": "Oreo",
+        "marca": "Nabisco",
+        "descripcion": "Doble galleta de chocolate con crema sabor a vainilla",
+        "precio": "86",
+        "cantidad": 83
+    },
+    {
+        "id": "2",
+        "nombre": "Bon o Bon",
+        "marca": "Arcor",
+        "descripcion": "Bombones rellenos de crema de chocolate con leche",
+        "precio": "122",
+        "cantidad": 100
+    },
+    {
+        "id": "3",
+        "nombre": "Alka",
+        "marca": "Arcor",
+        "descripcion": "Alka ice azul 100 uni",
+        "precio": "58",
+        "cantidad": 70
+    },
+    {
+        "id": "4",
+        "nombre": "Besito",
+        "marca": "Diana",
+        "descripcion": "Dulce gond nougat fresa 24 unidades",
+        "precio": "38",
+        "cantidad": 100
+    },
+    {
+        "id": "6",
+        "nombre": "Bianchi",
+        "marca": "Super",
+        "descripcion": "Dulce de chocolate y caramelo 100 uni",
+        "precio": "43",
+        "cantidad": 101
+    },
+    {
+        "id": "5",
+        "nombre": "Snickers",
+        "marca": "Mars, Inc",
+        "descripcion": "Barra de chocolate con maní",
+        "precio": "56",
+        "cantidad": 67
+    },
+    {
+        "id": "8",
+        "nombre": "Chocolates Ferrero Rocher",
+        "marca": "Ferrero Rocher",
+        "descripcion": "Chocolates Ferrero Rocher Collection 7 Unidades ",
+        "precio": "157",
+        "cantidad": "9"
+    },
+    {
+        "id": "10",
+        "nombre": "Malvaviscos",
+        "marca": "Super",
+        "descripcion": "Malvaviscos sabor a vainilla",
+        "precio": "43",
+        "cantidad": "100"
+    }
+]

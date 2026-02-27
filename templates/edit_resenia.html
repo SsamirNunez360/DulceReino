@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Dulce</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-dulce: #FF9BB3;
+      --morado-dulce: #D6A3DC;
+      --amarillo-dulce: #FFD166;
+      --verde-menta: #A2D9B1;
+      --azul-cielo: #A2D9FF;
+      --blanco-crema: #FFF9FB;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Navbar Estilo Dulce */
+    .navbar {
+      background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+      border-bottom: 3px solid var(--amarillo-dulce);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.8rem;
+      color: white !important;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05) rotate(-5deg);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: white !important;
+      margin: 0 5px;
+      padding: 8px 15px !important;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .nav-link.active {
+      background-color: var(--amarillo-dulce);
+      color: #333 !important;
+    }
+
+    .dropdown-menu {
+      background-color: var(--blanco-crema);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .dropdown-item {
+      font-weight: 500;
+      color: #555;
+      transition: all 0.2s;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--rosa-dulce);
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .dropdown-divider {
+      border-color: var(--rosa-dulce);
+      opacity: 0.3;
+    }
+
+    .navbar-toggler {
+      border: 2px solid white;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    /* Contenedor principal */
+    .container {
+      background-color: rgba(255, 249, 251, 0.92);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 30px;
+      margin-bottom: 50px;
+      border: 3px solid var(--rosa-dulce);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    /* Formulario */
+    .form-label {
+      font-weight: 600;
+      color: var(--morado-dulce);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 12px;
+      padding: 12px 15px;
+      color: #555;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--morado-dulce);
+      box-shadow: 0 0 0 0.25rem rgba(214, 163, 220, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .form-control::placeholder {
+      color: #bbb;
+      font-style: italic;
+    }
+
+    /* Botones */
+    .btn-primary {
+      background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      margin-top: 15px;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Efectos especiales */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Decoración dulce */
+    .candy-decoration {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0.6;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍬 Sistema Dulce</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Opciones del Sistema
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="crear">🍬 Crear nuevo registro</a></li>
+                <li><a class="dropdown-item" href="editar">✏️ Editar un registro</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="eliminar">🗑️ Eliminar un registro</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Decoraciones flotantes -->
+  <div class="candy-decoration floating" style="top: 20%; left: 5%;">🍫</div>
+  <div class="candy-decoration floating" style="top: 70%; right: 8%; animation-delay: 0.5s;">🍬</div>
+  <div class="candy-decoration floating" style="top: 30%; right: 10%; animation-delay: 1s;">🍭</div>
+
+  <div class="container mt-4">
+    <div class="col-sm-8 mx-auto">
+        <form action="/resenia/update" method="post">
+            {% csrf_token %}
+            <div class="mb-4">
+              <label class="form-label">Id</label>
+              <input type="text" class="form-control" hidden value="{{resenia.id}}" name="id">
+              <input type="text" class="form-control" disabled value="{{resenia.id}}">
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Descripción</label>
+              <input type="text" class="form-control" value="{{resenia.descripcion}}" name="descripcion">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Efecto hover para elementos del formulario
+    document.querySelectorAll('.form-control').forEach(input => {
+      input.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px)';
+      });
+      input.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+      });
+    });
+  </script>
+</body>
+</html>

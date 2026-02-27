@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Promociones | Dulce Reino</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --rosa-dulce: #FF9BB3;
+            --morado-dulce: #D6A3DC;
+            --amarillo-dulce: #FFD166;
+            --verde-menta: #A2D9B1;
+            --azul-cielo: #A2D9FF;
+            --blanco-azucar: #FFF9FB;
+        }
+
+        body {
+            background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar Estilo Dulce */
+        .navbar {
+            background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+            border-bottom: 3px solid var(--amarillo-dulce);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+        .navbar-brand { font-family: 'Luckiest Guy', cursive; font-size: 2rem; color: white !important; text-shadow: 2px 2px 0 rgba(0,0,0,0.1); }
+        .nav-link { font-weight: 600; color: white !important; margin: 0 10px; padding: 8px 15px !important; border-radius: 20px; transition: all .3s; }
+        .nav-link:hover { background-color: rgba(255,255,255,0.2); transform: translateY(-3px); }
+        .nav-link.active { background-color: var(--amarillo-dulce); color: #333 !important; }
+
+        /* Tabla de Promociones */
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--rosa-dulce);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .table-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+            opacity: 0.1;
+            z-index: 0;
+        }
+        .table { position: relative; z-index: 1; }
+        .table thead th { background-color: var(--morado-dulce); color: white; border-bottom: 2px solid var(--rosa-dulce); font-weight: 700; }
+        .table-striped tbody tr:nth-of-type(odd) { background-color: rgba(255,155,179,0.1); }
+        .table-hover tbody tr:hover { background-color: rgba(214,163,220,0.2); }
+
+        /* Botones Dulces */
+        .btn-dulce {
+            background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+            color: white !important; border: none; padding: 8px 20px;
+            border-radius: 50px; font-weight: 600; transition: all .3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-right: 8px;
+        }
+        .btn-dulce:hover {
+            background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .cuadro-promocion {
+        background: linear-gradient(90deg, var(--amarillo-dulce), var(--rosa-dulce), var(--morado-dulce));
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        border: 3px dashed var(--blanco-azucar);
+        }
+        .cuadro-texto {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0 10px;
+            border-radius: 15px;
+        }
+
+        /* Animación de brillo */
+        @keyframes shine {
+        0% { background-position: -200px; }
+        100% { background-position: 200px; }
+        }
+
+        .cuadro-promocion {
+        background: linear-gradient(90deg, var(--amarillo-dulce), var(--rosa-dulce), var(--morado-dulce));
+        display: inline-block;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 2.5rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        border: 3px dashed var(--blanco-azucar);
+        position: relative;
+        overflow: hidden;
+        }
+
+        /* Brillo animado */
+        .cuadro-promocion::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, rgba(255,255,255,0.4) 0%, transparent 60%);
+        transform: skewX(-20deg);
+        animation: shine 2.5s infinite;
+        }
+
+        #confeti-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none; /* para que no interfiera con los clics */
+    overflow: hidden;
+    z-index: 999;
+    }
+
+    .confeti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: flotar 6s infinite linear;
+    }
+
+    @keyframes flotar {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+    }
+
+
+
+    </style>
+
+
+
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">🍬 Dulce Reino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/home">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/promocion">💲Promociones</a></li>
+            <li class="nav-item"><a class="nav-link" href="/dulce">🍭 Productos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/resenia">⭐ Reseñas</a></li>
+          </ul>
+          <div class="d-flex"><a href="/" class="btn btn-outline-light">Cerrar Sesión</a></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <div class="container py-5">
+    <div class="text-center mb-4">
+        <div class="text-center mb-4">
+            <div class="cuadro-promocion mx-auto mb-4">
+                🎉 <span class="cuadro-texto">Promociones Dulces</span> 🍬
+            </div>
+            <a href="{% url 'create_promocion' %}" class="btn btn-dulce mt-3 animate__animated animate__bounceIn">
+                ➕ Nueva Promoción
+            </a>
+        </div>
+    </div>
+
+
+    <div class="table-container">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Descuento</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for promocion in promociones %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ promocion.codigo }}</td>
+            <td>{{ promocion.nombre }}</td>
+            <td>{{ promocion.descripcion }}</td>
+            <td>{{ promocion.descuento }}%</td>
+            <td>{{ promocion.fechainicio }}</td>
+            <td>{{ promocion.fechafinal }}</td>
+            <td>
+                {% if promocion.pk %}
+                <div class="d-flex gap-2">
+                    <a href="{% url 'promocion_edit' promocion.id %}" class="btn btn-dulce btn-sm">✏️ Editar</a>
+                    <a href="{% url 'promocion_delete' promocion.id %}" class="btn btn-dulce btn-sm">🗑️ Eliminar</a>
+                  </div>
+                </td>
+              </tr>
+            {% endif %}
+          {% empty %}
+            <tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Meta y título -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulce Reino - Productos</title>
+  
+  <!-- Google Fonts (Tipografía dulce) -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <style>
+    :root {
+      --rosa-dulce: #FF9BB3;
+      --morado-dulce: #D6A3DC;
+      --amarillo-dulce: #FFD166;
+      --verde-menta: #A2D9B1;
+      --azul-cielo: #A2D9FF;
+      --blanco-azucar: #FFF9FB;
+      --caramelo: #FFAA5C;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: #5A3D5C;
+    }
+
+    /* Navbar estilo dulce */
+    .navbar {
+      background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+      border-bottom: 3px solid var(--amarillo-dulce);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.8rem;
+      color: white !important;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: var(--amarillo-dulce) !important;
+    }
+
+    .dropdown-menu {
+      background-color: var(--blanco-azucar);
+      border: 2px solid var(--rosa-dulce);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--rosa-dulce);
+      color: white !important;
+    }
+
+
+    /* Contenedor del formulario estilo gominola */
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 25px;
+      border: 3px solid var(--rosa-dulce);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      margin: 50px auto;
+      max-width: 700px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+    }
+
+    .form-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+      z-index: 0;
+      opacity: 0.08;
+      transition: opacity 0.3s;
+    }
+
+    .form-container:hover::before {
+      opacity: 0.15;
+    }
+
+    /* Estilos del formulario */
+    .form-title {
+      font-family: 'Luckiest Guy', cursive;
+      color: var(--morado-dulce);
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-label {
+      color: var(--morado-dulce);
+      font-weight: 600;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-control {
+      background-color: var(--blanco-azucar);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 50px;
+      padding: 15px 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
+      font-size: 1rem;
+    }
+
+    .form-control:focus {
+      border-color: var(--morado-dulce);
+      box-shadow: 0 0 0 0.25rem rgba(214, 163, 220, 0.3);
+      transform: scale(1.02);
+    }
+
+    .form-control::placeholder {
+      color: #C7A8D1;
+      font-style: italic;
+    }
+
+    /* Botón estilo caramelo */
+    .btn-dulce {
+      background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+      color: white !important;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(255, 155, 179, 0.4);
+      width: 100%;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      letter-spacing: 1px;
+    }
+
+    .btn-dulce:hover {
+      background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(214, 163, 220, 0.6);
+    }
+
+    .btn-dulce::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: rotate(30deg);
+      transition: all 0.3s;
+    }
+
+    .btn-dulce:hover::after {
+      left: 100%;
+    }
+
+    /* Decoraciones dulces */
+    .decoracion-dulce {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.7;
+      z-index: 0;
+      animation: flotar 4s ease-in-out infinite;
+      filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.1));
+      pointer-events: none;
+    }
+
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    /* Efecto especial al enviar el formulario */
+    .form-container {
+      perspective: 1000px;
+    }
+
+    .form-container:has(.btn-dulce:active) {
+      animation: efectoClick 0.5s;
+    }
+
+    @keyframes efectoClick {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(0.98); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 25px;
+        margin: 30px 15px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.7rem;
+      }
+      
+      .form-title {
+        font-size: 2rem;
+      }
+      
+      .form-control {
+        padding: 12px 20px;
+      }
+      
+      .btn-dulce {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Decoraciones dulces -->
+  <div class="decoracion-dulce" style="top: 15%; left: 5%;">🍬</div>
+  <div class="decoracion-dulce" style="top: 25%; right: 5%; animation-delay: 0.5s;">🍭</div>
+  <div class="decoracion-dulce" style="bottom: 20%; left: 10%; animation-delay: 1s;">🍫</div>
+  <div class="decoracion-dulce" style="bottom: 30%; right: 8%; animation-delay: 1.5s;">🧁</div>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍬 Dulce Reino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/registro">Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/resenia">Reseñas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/favorito">Favoritos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-title">Nuevo Producto Dulce</h2>
+      <form action="/dulce/insert" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">ID</label>
+          <input type="text" class="form-control" name="id" placeholder="Ingrese el ID">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Marca</label>
+          <input type="text" class="form-control" name="marca" placeholder="Ingrese la marca">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Precio</label>
+          <input type="text" class="form-control" name="precio" placeholder="Ingrese el precio">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Cantidad</label>
+          <input type="text" class="form-control" name="cantidad" placeholder="Ingrese la cantidad">
+        </div>
+        <button type="submit" class="btn btn-dulce">Guardar Producto</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

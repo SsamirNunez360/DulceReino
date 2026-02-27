@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dulce Reino - Administración</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-dulce: #FF9BB3;
+      --morado-dulce: #D6A3DC;
+      --amarillo-dulce: #FFD166;
+      --verde-menta: #A2D9B1;
+      --azul-cielo: #A2D9FF;
+      --blanco-azucar: #FFF9FB;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+      border-bottom: 3px solid var(--amarillo-dulce);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.8rem;
+      color: white !important;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05) rotate(-5deg);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: white !important;
+      margin: 0 10px;
+      padding: 8px 15px !important;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .nav-link.active {
+      background-color: var(--amarillo-dulce);
+      color: #333 !important;
+    }
+
+    .dropdown-menu {
+      background-color: var(--blanco-azucar);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .dropdown-item {
+      color: var(--morado-dulce);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--rosa-dulce);
+      color: white !important;
+      transform: translateX(5px);
+    }
+
+    .navbar-toggler {
+      border: 2px solid white;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    /* Contenedor principal */
+    .container {
+      background: rgba(255, 249, 251, 0.95);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 30px;
+      box-shadow: 0 8px 32px rgba(214, 163, 220, 0.3);
+      border: 3px solid var(--rosa-dulce);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    /* Limitar el ancho del formulario */
+    .custom-width {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Formulario estilo dulce */
+    .form-label {
+      font-weight: 600;
+      color: var(--morado-dulce);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 12px;
+      padding: 10px 15px;
+      color: #555;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--morado-dulce);
+      box-shadow: 0 0 0 0.25rem rgba(214, 163, 220, 0.25);
+      background-color: white;
+    }
+
+    .form-control:disabled {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #888;
+    }
+
+    /* Botones */
+    .btn {
+      border-radius: 50px;
+      padding: 10px 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(90deg, var(--amarillo-dulce), #FFB347);
+      color: #333;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(90deg, #FFB347, var(--amarillo-dulce));
+      transform: translateY(-3px);
+      color: #333;
+    }
+
+    .btn-primary:hover::after {
+      content: '🍬';
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      animation: appearDelete 0.5s forwards;
+    }
+
+    .btn-secondary:hover::after {
+      content: '🍬';
+      position: absolute;
+      left: -25px; /* Cambiado a left para que aparezca a la izquierda */
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      animation: appearCancel 0.5s forwards;
+    }
+
+    @keyframes appearDelete {
+      to {
+        opacity: 1;
+        right: -30px;
+      }
+    }
+
+    @keyframes appearCancel {
+      to {
+        opacity: 1;
+        left: -30px; /* Cambiado a left para que se desplace desde la izquierda */
+      }
+    }
+
+    .form-label:last-of-type {
+      font-size: 1.1rem;
+      color: var(--morado-dulce);
+      display: block;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: rgba(255, 155, 179, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid var(--rosa-dulce);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍬 Dulce Reino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Opciones del Sistema
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="crear">Registrar Administrador</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container col-sm-8 custom-width">
+    <form action="/registro/delete" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="text" class="form-control" hidden value="{{registro.email}}" name="email">
+        <input type="text" class="form-control" disabled value="{{registro.email}}">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="text" class="form-control" disabled value="{{registro.password}}" name="password">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" disabled value="{{registro.nombre}}" name="nombre">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" disabled value="{{registro.apellido}}" name="apellido">
+      </div>
+      <label class="form-label">¿Estás seguro de eliminar este registro?</label>
+      <div>
+        <a href="/registro" class="btn btn-secondary me-2">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Eliminar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

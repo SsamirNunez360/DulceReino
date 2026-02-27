@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "nombre": "Dulceria Chanito",
+        "email": "dulceriachanito@gmail.com",
+        "direccion": "Orocuina, Choluteca, Honduras",
+        "telefono": "89618149"
+    },
+    {
+        "id": "2",
+        "nombre": "Venadito",
+        "email": "venadito@gmail.com",
+        "direccion": "Tegucigalpa, Francisco Morazán",
+        "telefono": "89618149"
+    },
+    {
+        "id": "5",
+        "nombre": "Samurai Jack",
+        "email": "samuraijack@cartoonnetwork.com",
+        "direccion": "Japon feudal",
+        "telefono": "46497"
+    },
+    {
+        "id": "8",
+        "nombre": "Willy Wonka",
+        "email": "willywonka@warner.com",
+        "direccion": "La fabrica de chocolates",
+        "telefono": "87654321"
+    },
+    {
+        "id": "100",
+        "nombre": "Ferb",
+        "email": "ferb@disney.com",
+        "direccion": "El area Limitrofe",
+        "telefono": "48943"
+    }
+]

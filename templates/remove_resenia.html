@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dulce Reino - Eliminar Reseña</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --rosa-dulce: #FF9BB3;
+      --morado-dulce: #D6A3DC;
+      --amarillo-dulce: #FFD166;
+      --verde-menta: #A2D9B1;
+      --azul-cielo: #A2D9FF;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Navbar Estilo Dulce */
+    .navbar {
+      background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+      border-bottom: 3px solid var(--amarillo-dulce);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.8rem;
+      color: white !important;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05) rotate(-5deg);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: white !important;
+      margin: 0 5px;
+      padding: 8px 15px !important;
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .nav-link.active {
+      background-color: var(--amarillo-dulce);
+      color: #333 !important;
+    }
+
+    .navbar-toggler {
+      border: 2px solid white;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    /* Dropdown Estilo Dulce */
+    .dropdown-menu {
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .dropdown-item {
+      color: var(--morado-dulce);
+      font-weight: 600;
+      padding: 8px 15px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--rosa-dulce);
+      color: white !important;
+      transform: translateX(5px);
+    }
+
+    .dropdown-divider {
+      border-color: var(--amarillo-dulce);
+      opacity: 0.5;
+    }
+
+    /* Contenedor principal */
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      border: 3px solid var(--rosa-dulce);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+      z-index: 0;
+      opacity: 0.1;
+    }
+
+    .container > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Formulario */
+    .form-label {
+      font-weight: 700;
+      color: var(--morado-dulce);
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 2px solid var(--morado-dulce);
+      border-radius: 15px;
+      padding: 10px 15px;
+      color: #333;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: var(--rosa-dulce);
+      box-shadow: 0 0 0 0.25rem rgba(214, 163, 220, 0.25);
+      background-color: white;
+    }
+
+    .form-control:disabled {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-color: var(--verde-menta);
+    }
+
+    /* Botones */
+    .btn-cancelar {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 25px;
+      background: linear-gradient(90deg, var(--azul-cielo), var(--verde-menta));
+      color: white !important;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: none;
+      text-decoration: none !important;
+    }
+
+    .btn-cancelar:hover {
+      background: linear-gradient(90deg, var(--verde-menta), var(--azul-cielo));
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-eliminar {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 25px;
+      background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+      color: white !important;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+
+    .btn-eliminar:hover {
+      background: linear-gradient(90deg, #ff8e8e, #ff6b6b);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Texto de confirmación */
+    .confirmation-text {
+      color: var(--morado-dulce);
+      font-weight: 600;
+      margin: 20px 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    /* Sección de botones */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .text-align-center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍬 Dulce Reino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Opciones del Sistema
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="crear">Crear nuevo registro</a></li>
+                <li><a class="dropdown-item" href="editar">Editar un registro</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="eliminar">Eliminar un registro</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="text-align-center">
+      <form action="/resenia/delete" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Id</label>
+          <input type="text" class="form-control" hidden value="{{resenia.id}}" name="id">
+          <input type="text" class="form-control" disabled value="{{resenia.id}}">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <input type="text" class="form-control" disabled value="{{resenia.descripcion}}">
+        </div>
+        
+        <div class="confirmation-text">
+          <i class="fas fa-exclamation-triangle me-2"></i>¿Estás seguro de eliminar este registro?
+        </div>
+        
+        <div class="action-buttons">
+          <a href="/resenia" class="btn-cancelar">
+            <i class="fas fa-times-circle me-2"></i>Cancelar
+          </a>
+          <button type="submit" class="btn-eliminar">
+            <i class="fas fa-trash-alt me-2"></i>Eliminar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

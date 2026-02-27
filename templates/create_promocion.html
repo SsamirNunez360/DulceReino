@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rosa-dulce: #FF9BB3;
+      --morado-dulce: #D6A3DC;
+      --amarillo-dulce: #FFD166;
+      --verde-menta: #A2D9B1;
+      --blanco-azucar: #FFF9FB;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+      border-bottom: 3px solid var(--amarillo-dulce);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.8rem;
+      color: white !important;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: var(--amarillo-dulce) !important;
+    }
+
+    .dropdown-menu {
+      background-color: var(--blanco-azucar);
+      border: 2px solid var(--rosa-dulce);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--rosa-dulce);
+      color: white !important;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 20px;
+      border: 3px solid var(--rosa-dulce);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin: 30px auto;
+      max-width: 800px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+      z-index: 0;
+      opacity: 0.05;
+    }
+
+    .form-title {
+      font-family: 'Luckiest Guy', cursive;
+      color: var(--morado-dulce);
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-label {
+      color: var(--morado-dulce);
+      font-weight: 600;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-control {
+      background-color: var(--blanco-azucar);
+      border: 2px solid var(--rosa-dulce);
+      border-radius: 50px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-control:focus {
+      border-color: var(--morado-dulce);
+      box-shadow: 0 0 0 0.25rem rgba(214, 163, 220, 0.25);
+    }
+
+    .btn-dulce {
+      background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+      color: white !important;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 155, 179, 0.3);
+      width: 100%;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-dulce:hover {
+      background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 155, 179, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 20px;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .form-control {
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🍬 Dulce Reino</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Opciones del Sistema
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/crear">Crear nuevo favorito</a></li>
+                <li><a class="dropdown-item" href="/crear-promocion">Crear promoción</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="form-container">
+      <h2 class="form-title">Nueva Promoción</h2>
+      <form action="/promocion/insert/" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Código de Promoción</label>
+          <input type="text" class="form-control" name="codigo" placeholder="Ej: PROMO123">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Nombre de la Promoción</label>
+          <input type="text" class="form-control" name="nombre" placeholder="Nombre atractivo">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descripción</label>
+          <input type="text" class="form-control" name="descripcion" placeholder="Breve descripción">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Descuento (%)</label>
+          <input type="number" class="form-control" name="descuento" placeholder="Ej: 20">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Fecha de Inicio</label>
+          <input type="text" class="form-control" name="fecha_inicio" placeholder="DD/MM/AA">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Fecha de Finalización</label>
+          <input type="text" class="form-control" name="fecha_final" placeholder="DD/MM/AA">
+        </div>
+        <button type="submit" class="btn btn-dulce">Guardar Promoción</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

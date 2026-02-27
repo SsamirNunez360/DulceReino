@@ -1,0 +1,273 @@
+<head>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --rosa-dulce: #FF9BB3;
+        --morado-dulce: #D6A3DC;
+        --amarillo-dulce: #FFD166;
+        --verde-menta: #A2D9B1;
+        --azul-cielo: #A2D9FF;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-image: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        color: #333;
+      }
+
+      /* Navbar Estilo Dulce */
+      .navbar {
+        background: linear-gradient(135deg, var(--rosa-dulce), var(--morado-dulce));
+        border-bottom: 3px solid var(--amarillo-dulce);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+      }
+
+      .navbar-brand {
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 1.8rem;
+        color: white !important;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        letter-spacing: 1px;
+        transition: all 0.3s;
+      }
+
+      .navbar-brand:hover {
+        transform: scale(1.05) rotate(-5deg);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      .nav-link {
+        font-weight: 600;
+        color: white !important;
+        margin: 0 5px;
+        padding: 8px 15px !important;
+        border-radius: 20px;
+        transition: all 0.3s;
+      }
+
+      .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
+
+      .nav-link.active {
+        background-color: var(--amarillo-dulce);
+        color: #333 !important;
+      }
+
+      .navbar-toggler {
+        border: 2px solid white;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+      }
+
+      /* Dropdown Estilo Dulce */
+      .dropdown-menu {
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 2px solid var(--rosa-dulce);
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .dropdown-item {
+        color: var(--morado-dulce);
+        font-weight: 600;
+        padding: 8px 15px;
+        transition: all 0.2s;
+      }
+
+      .dropdown-item:hover {
+        background-color: var(--rosa-dulce);
+        color: white !important;
+        transform: translateX(5px);
+      }
+
+      .dropdown-divider {
+        border-color: var(--amarillo-dulce);
+        opacity: 0.5;
+      }
+
+      /* Formulario Estilo Dulce */
+      .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border: 3px solid var(--rosa-dulce);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+      }
+
+      .form-label {
+        font-weight: 700;
+        color: var(--morado-dulce);
+      }
+
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 2px solid var(--morado-dulce);
+        border-radius: 15px;
+        padding: 10px 15px;
+        color: #333;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus {
+        border-color: var(--rosa-dulce);
+        box-shadow: 0 0 0 0.25rem rgba(214, 163, 220, 0.25);
+        background-color: white;
+      }
+
+      .form-control:disabled {
+        background-color: rgba(255, 255, 255, 0.6);
+        border-color: var(--verde-menta);
+      }
+
+      /* Botones Estilo Dulce */
+      .btn-primary {
+        background: linear-gradient(90deg, var(--rosa-dulce), var(--morado-dulce));
+        border: none;
+        border-radius: 50px;
+        padding: 10px 25px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(90deg, var(--morado-dulce), var(--rosa-dulce));
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      a {
+        color: var(--morado-dulce);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      a:hover {
+        color: var(--rosa-dulce);
+        text-decoration: underline;
+      }
+
+      /* Efectos especiales */
+      .container {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, var(--rosa-dulce), var(--morado-dulce));
+        z-index: 0;
+        opacity: 0.1;
+      }
+
+      .container > * {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">🍬 Dulce Reino</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Inicio</a>
+              </li>
+  
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Opciones del Sistema
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="crear">Crear nuevo registro</a></li>
+                  <li><a class="dropdown-item" href="editar">Editar un registro</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="eliminar">Eliminar un registro</a></li>
+                </ul>
+              </li>
+  
+            </ul>
+  
+          </div>
+        </div>
+      </nav>
+    </header>
+  
+    <div class="container">
+      <div class="col-sm-8 mx-auto">
+          <form action="/dulce/delete" method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input type="text" class="form-control" hidden value="{{dulce.id}}" name="id">
+                <input type="text" class="form-control" disabled value="{{dulce.id}}">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" disabled value="{{dulce.nombre}}" name="nombre">
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">Marca</label>
+                  <input type="text" class="form-control" disabled value="{{dulce.marca}}" name="marca">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Descripción</label>
+                  <input type="text" class="form-control" disabled value="{{dulce.descripcion}}" name="descripcion">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Precio</label>
+                  <input type="text" class="form-control" disabled value="{{dulce.precio}}" name="precio">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Cantidad</label>
+                  <input type="text" class="form-control" disabled value="{{dulce.cantidad}}" name="cantidad">
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                  <label class="form-label mb-0">¿Estás seguro de eliminar este registro?</label>
+                  <div>
+                    <a href="/dulce" class="me-3">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                  </div>
+                </div>
+            </form>
+      </div>
+    </div>
+  </body>

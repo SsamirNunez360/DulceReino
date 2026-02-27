@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "codigo": "PROMO777",
+        "nombre": "Promo de Verano",
+        "descripcion": "Promo veraniega",
+        "descuento": "15",
+        "fechainicio": "23/04/2025",
+        "fechafinal": "30/04/2025"
+    },
+    {   
+        "id": "2",
+        "codigo": "PROMO555",
+        "nombre": "Promo Primaveral",
+        "descripcion": "En donde los precios bajos florecen",
+        "descuento": "15",
+        "fechainicio": "23/04/2025",
+        "fechafinal": "30/04/2025"
+    },
+    {
+        "id": "3",
+        "codigo": "OFERTA321",
+        "nombre": "Oferton",
+        "descripcion": "Obtenga un descuento al comprar tres productos de la misma marca",
+        "descuento": "35",
+        "fechainicio": "25/04/2025",
+        "fechafinal": "01/05/2025"
+    }
+]

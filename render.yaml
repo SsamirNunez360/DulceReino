@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: dulce-reino
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn demo.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
