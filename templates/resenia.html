@@ -25,12 +25,25 @@
       --blanco-azucar: #FFF9FB;
     }
 
+    html, body {
+        height: 100%;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: url('https://s1.1zoom.me/b4438/125/Sweets_Candy_Many_Marmalade_541664_1920x1080.jpg') no-repeat center center fixed;
-      background-size: cover;
-      min-height: 100vh;
-      color: #5A3D5C;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff9bb3, #d6a3dc, #ffd166, #ff9bb3);
+        background-size: 400% 400%;
+        animation: fondoAnimado 12s ease infinite;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        color: #333;
+    }
+
+    @keyframes fondoAnimado {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     /* Navbar Estilo Dulce */
