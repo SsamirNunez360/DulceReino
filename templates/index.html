@@ -15,16 +15,25 @@
             --blanco-azucar: #FFF9FB;
         }
 
+        html, body {
+            height: 100%;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
-            background-image: url('https://s2.best-wallpaper.net/wallpaper/1920x1080/1712/Colorful-candy-lollipops-sweet-food_1920x1080.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, #ff9bb3, #d6a3dc, #ffd166, #ff9bb3);
+            background-size: 400% 400%;
+            animation: fondoAnimado 12s ease infinite;
             min-height: 100vh;
             margin: 0;
             overflow-x: hidden;
             color: #333;
+        }
+        
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Navbar estilo dulce */
@@ -345,3 +354,4 @@
 </body>
 
 </html>
+
