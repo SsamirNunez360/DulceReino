@@ -1,10 +1,13 @@
 from lib.user import User
 import json
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class LibUser:
     
     def login(self, email, password):
-        file = open('data/users.json')
+        file = open(os.path.join(BASE_DIR, "data/users.json"))
         j = json.load(file)
         for x in j:
             if x['email'] == email and x['password'] == password:
@@ -13,16 +16,16 @@ class LibUser:
 
     def create(self, email, password, nombre, apellido):
         user = User(email, password, nombre, apellido)
-        file = open("data/users.json")
+        file = open(os.path.join(BASE_DIR, "data/users.json"))
         j = json.load(file)
         j = j + [user.toJson()]
-        file = open("data/users.json", "w")
+        file = open(os.path.join(BASE_DIR, "data/users.json"), "w")
         json.dump(j, file, ensure_ascii=False, indent=4)
         file.close()
         return True
 
     def get_users(self):
-        file = open("data/users.json")
+        file = open(os.path.join(BASE_DIR, "data/users.json"))
         j = json.load(file)
         list = []
         for x in j:
@@ -30,7 +33,7 @@ class LibUser:
         return list 
 
     def get_user_by_email(self, email):
-        file = open("data/users.json")
+        file = open(os.path.join(BASE_DIR, "data/users.json"))
         j = json.load(file)
         for x in j: 
             if(x['email']==email):
@@ -38,7 +41,7 @@ class LibUser:
         return None
 
     def edit_user(self, email, password, nombre, apellido):
-        file = open("data/users.json")
+        file = open(os.path.join(BASE_DIR, "data/users.json"))
         j = json.load(file)
         for x in j: 
             if(x['email']==email):
@@ -46,19 +49,19 @@ class LibUser:
                 x['password']= password
                 x['nombre']= nombre
                 x['apellido']= apellido
-                file = open("data/users.json","w")
+                file = open(os.path.join(BASE_DIR, "data/users.json"),"w")
                 json.dump(j,file,ensure_ascii=False, indent=4)
                 file.close()
                 return True
         return False
 
     def eliminar(self, email):
-        file = open("data/users.json")
+        file = open(os.path.join(BASE_DIR, "data/users.json"))
         j = json.load(file)
         for i in range(0, len(j)):
             if j[i]['email'] == email:
                 j = j[:i] + j[i+1:]
-                file = open("data/users.json", "w")
+                file = open(os.path.join(BASE_DIR, "data/users.json"), "w")
                 json.dump(j, file, ensure_ascii=False, indent=4)
                 file.close()
                 return True

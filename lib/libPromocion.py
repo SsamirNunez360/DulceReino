@@ -1,12 +1,15 @@
 from lib.promocion import Promocion
 import json
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class LibPromocion:
 
     def create(self, codigo, nombre, descripcion, descuento, fechainicio, fechafinal):
         promocion = Promocion(codigo, nombre, descripcion, descuento, fechainicio, fechafinal)
         try:
-            file = open("data/promocion.json", "r", encoding="utf-8")
+            file = open(os.path.join(BASE_DIR, "data/promocion.json"), "r", encoding="utf-8")
             j = json.load(file)
             file.close()
         except:
@@ -14,13 +17,13 @@ class LibPromocion:
         
         j.append(promocion.toJson())
 
-        file = open("data/promocion.json", "w", encoding="utf-8")
+        file = open(os.path.join(BASE_DIR, "data/promocion.json"), "w", encoding="utf-8")
         json.dump(j, file, ensure_ascii=False, indent=4)
         file.close()
         return True
 
     def get_promociones(self):
-        file = open("data/promocion.json", "r", encoding="utf-8")
+        file = open(os.path.join(BASE_DIR, "data/promocion.json"), "r", encoding="utf-8")
         j = json.load(file)
         file.close()
         lista = []
@@ -29,14 +32,14 @@ class LibPromocion:
         return lista
 
     def eliminar(self, nombre):
-        file = open("data/promocion.json", "r", encoding="utf-8")
+        file = open(os.path.join(BASE_DIR, "data/promocion.json"), "r", encoding="utf-8")
         j = json.load(file)
         file.close()
 
         for i in range(len(j)):
             if j[i]['nombre'] == nombre:
                 j = j[:i] + j[i+1:]
-                file = open("data/promocion.json", "w", encoding="utf-8")
+                file = open(os.path.join(BASE_DIR, "data/promocion.json"), "w", encoding="utf-8")
                 json.dump(j, file, ensure_ascii=False, indent=4)
                 file.close()
                 return True

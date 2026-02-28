@@ -1,20 +1,23 @@
 from lib.dulce import Dulce
 import json
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class LibDulce:
     
     def create(self,id, nombre, marca, descripcion, precio, cantidad):
         persona = Dulce(id, nombre, marca, descripcion, precio, cantidad)
-        file = open("data/dulce.json")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"))
         j = json.load(file)
         j = j + [persona.toJson()]
-        file = open("data/dulce.json","w")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"),"w")
         json.dump(j,file,ensure_ascii=False, indent=4)
         file.close()
         return True
     
     def get_producto(self):
-        file = open("data/dulce.json")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"))
         j = json.load(file)
         list = []
         for x in j:
@@ -22,7 +25,7 @@ class LibDulce:
         return list 
     
     def get_dulce_by_id(self, id):
-        file = open("data/dulce.json")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"))
         j = json.load(file)
         for x in j: 
             if(x['id']==id):
@@ -30,7 +33,7 @@ class LibDulce:
         return None
     
     def edit_dulce(self,id, nombre, marca, descripcion, precio, cantidad):
-        file = open("data/dulce.json")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"))
         j = json.load(file)
         for x in j: 
             if(x['id']==id):
@@ -39,19 +42,19 @@ class LibDulce:
                 x['descripcion'] = descripcion
                 x['precio']= precio
                 x['cantidad']= cantidad
-                file = open("data/dulce.json","w")
+                file = open(os.path.join(BASE_DIR, "data/dulce.json"),"w")
                 json.dump(j,file,ensure_ascii=False, indent=4)
                 file.close()
                 return True
         return False
     
     def eliminar(self, id):
-        file = open("data/dulce.json")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"))
         j = json.load(file)
         for i in range(0,len(j)): 
             if(j[i]['id']==id):
                 j = j[:i]+ j[i+1:]
-                file = open("data/dulce.json","w")
+                file = open(os.path.join(BASE_DIR, "data/dulce.json"),"w")
                 json.dump(j,file,ensure_ascii=False, indent=4)
                 file.close()
                 return True
@@ -59,7 +62,7 @@ class LibDulce:
     
 
     def search_by_name(self, name):
-        file = open("data/dulce.json", "r")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"), "r")
         j = json.load(file)
         file.close()
         results = [Dulce(x['id'], x['nombre'], x['marca'], x['descripcion'], x['precio'],  int(x['cantidad'])) 
@@ -67,7 +70,7 @@ class LibDulce:
         return results
     
     def search_by_marca(self, marca):
-        file = open("data/dulce.json", "r")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"), "r")
         j = json.load(file)
         file.close()
         results = [Dulce(x['id'], x['nombre'], x['marca'], x['descripcion'], x['precio'], int(x['cantidad']))
@@ -75,7 +78,7 @@ class LibDulce:
         return results
     
     def comprar_dulce(self, id):
-        file = open("data/dulce.json", "r")
+        file = open(os.path.join(BASE_DIR, "data/dulce.json"), "r")
         j = json.load(file)
         file.close()
         for x in j:
@@ -83,7 +86,7 @@ class LibDulce:
                 cantidad = int(x['cantidad']) 
                 if cantidad > 0:
                     x['cantidad'] = cantidad - 1
-                    with open("data/dulce.json", "w") as file:
+                    with open(os.path.join(BASE_DIR, "data/dulce.json"), "w") as file:
                         json.dump(j, file, ensure_ascii=False, indent=4)
                     return True  
                 else:
